@@ -61,3 +61,5 @@ jobs:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          clean: true
+          restart: true
