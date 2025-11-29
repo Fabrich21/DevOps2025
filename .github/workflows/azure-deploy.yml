@@ -10,7 +10,7 @@ on:
       - main
 
 env:
-  AZURE_WEBAPP_NAME: ejercicioB    # Nombre de tu Azure App Service
+  AZURE_WEBAPP_NAME: ejercicioB    
   AZURE_WEBAPP_PACKAGE_PATH: '.'
   NODE_VERSION: '18.x'
 
