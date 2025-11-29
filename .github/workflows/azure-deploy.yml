@@ -10,9 +10,9 @@ on:
       - main
 
 env:
-  AZURE_WEBAPP_NAME: ejercicioB    
+  AZURE_WEBAPP_NAME: EjercicioB-DevOps    
   AZURE_WEBAPP_PACKAGE_PATH: '.'
-  NODE_VERSION: '18.x'
+  NODE_VERSION: '22.x'
 
 jobs:
   build:
@@ -61,5 +61,3 @@ jobs:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-          clean: true
-          restart: true
