@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Endpoint raíz
 app.get('/', (req, res) => {
   res.json({
     message: '¡Bienvenido a la API de DevOps!',
@@ -27,6 +26,20 @@ app.get('/status', (req, res) => {
   res.json({
     status: 'OK',
     uptime: process.uptime(),
+    timestamp: new Date().toISOString()
+  });
+});
+
+// Nuevo endpoint
+app.get('/health', (req, res) => {
+  res.json({
+    message: '¡Endpoint nuevo agregado mediante Pull Request!',
+    health: 'Sistema funcionando correctamente',
+    checks: {
+      database: 'OK',
+      api: 'OK',
+      memory: 'OK'
+    },
     timestamp: new Date().toISOString()
   });
 });
