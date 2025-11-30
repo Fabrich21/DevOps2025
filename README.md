@@ -1,11 +1,11 @@
 # Ejercicio B - CI/CD con GitHub Actions y Azure App Service
 
 ## Descripción
-Aplicación backend simple con NestJS configurada para Integración Continua y Despliegue Continuo usando GitHub Actions y Azure App Services.
+Aplicación backend simple con Express.js configurada para Integración Continua y Despliegue Continuo usando GitHub Actions y Azure App Services.
 
 ## Características de la aplicación
 - **Sin dependencias externas**: No usa bases de datos, microservicios ni otros servicios externos
-- **Endpoints simples**: Dos rutas que devuelven cadenas de texto
+- **Endpoints simples**: API REST con 4 endpoints
 - **Preparada para Azure**: Configuración del puerto dinámica para Azure App Service
 
 ## Endpoints disponibles
@@ -14,13 +14,25 @@ Aplicación backend simple con NestJS configurada para Integración Continua y D
 ```
 GET /
 ```
-Devuelve: "¡Bienvenido a la aplicación de CI/CD con Azure App Services! La integración continua está funcionando correctamente."
+Devuelve mensaje de bienvenida con timestamp
 
 ### Ruta de información (/info)
 ```
 GET /info
 ```
-Devuelve: "Esta aplicación demuestra CI/CD con GitHub Actions y Azure App Services. Cada push a main despliega automáticamente."
+Devuelve información del servidor (versión Node, memoria, plataforma)
+
+### Ruta de estado (/status)
+```
+GET /status
+```
+Devuelve estado del servidor y uptime
+
+### Ruta de salud (/health)
+```
+GET /health
+```
+Devuelve estado de salud del sistema con checks
 
 ## Estructura del proyecto
 
@@ -28,16 +40,8 @@ Devuelve: "Esta aplicación demuestra CI/CD con GitHub Actions y Azure App Servi
 Ejercicio B/
 ├── .github/
 │   └── workflows/
-│       └── azure-deploy.yml    # Workflow de GitHub Actions
-├── src/
-│   ├── main.ts                 # Punto de entrada
-│   ├── app.module.ts           # Módulo principal
-│   ├── app.controller.ts       # Controlador con rutas
-│   └── app.service.ts          # Servicio con lógica
+│       └── main_devops-ejerciciob-25.yml    # Workflow de GitHub Actions
+├── server.js                   # Aplicación Express.js
 ├── package.json
-├── tsconfig.json
-├── tsconfig.build.json
-├── nest-cli.json
 └── .gitignore
 ```
-Ahora la prueba
