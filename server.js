@@ -31,6 +31,20 @@ app.get('/status', (req, res) => {
   });
 });
 
+// Nuevo endpoint health
+app.get('/health', (req, res) => {
+  res.json({
+    message: '¡Endpoint nuevo agregado mediante Pull Request!',
+    health: 'Sistema funcionando correctamente',
+    checks: {
+      database: 'OK',
+      api: 'OK',
+      memory: 'OK'
+    },
+    timestamp: new Date().toISOString()
+  });
+});
+
 app.listen(port, () => {
   console.log(`Servidor corriendo en puerto ${port}`);
 });
